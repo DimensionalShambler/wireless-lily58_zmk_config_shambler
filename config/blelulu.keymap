@@ -26,16 +26,6 @@
         };
     };
 
-    behaviors {
-        /* QMK TT(layer): hold = momentary layer, tap = toggle layer. */
-        tt: tap_toggle_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "hold-preferred";
-            bindings = <&mo>, <&tog>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -74,7 +64,7 @@
  * |------+------+------+------+------+------| Enter |    |       |------+------+------+------+------+------|
  * |LCtrl | F11  | F12  |  F5  |      |      |-------|    |-------| End  | PgDn |  [   |  ]   |  \   |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |      |TT Rse|      | /       /       \      \  |      | Menu |      |
+ *                   |      |Raise |      | /       /       \      \  |      | Menu |      |
  *                   `----------------------------'           '------''--------------------'
  */
         lower_layer {
@@ -84,7 +74,7 @@
 &trans    &kp F11      &kp F12 &kp DEL &trans &trans                        &kp PG_UP &kp HOME  &kp UP   &kp END   &kp RC(RIGHT) &kp BSLH
 &kp LSHFT &trans       &trans  &trans  &trans &kp BSPC                      &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans        &kp SQT
 &kp LCTRL &kp F11      &kp F12 &kp F5  &trans &trans    &kp RET   &trans    &kp END   &kp PG_DN &kp LBKT &kp RBKT  &kp BSLH      &trans
-                               &trans  &tt RAISE RAISE  &trans    &trans    &trans    &trans    &kp K_APP &trans
+                               &trans  &mo RAISE        &trans    &trans    &trans    &trans    &kp K_APP &trans
             >;
         };
 
